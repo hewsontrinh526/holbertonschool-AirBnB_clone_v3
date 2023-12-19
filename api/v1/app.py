@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """A file app.py that starts a Flask web application"""
+from api.v1.views import app_views
 from flask import Flask
 from models import storage
-from api.v1.views import app_views
 from os import getenv
 
 
