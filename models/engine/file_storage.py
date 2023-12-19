@@ -73,7 +73,8 @@ class FileStorage:
         """Retrieves one object"""
         if cls is not None and id is not None:
             for key, value in self.__objects.items():
-                if key == cls + '.' + id:
+                class_name = "{}.{}".format(cls.__name__, id)
+                if key == class_name:
                     return value
         return None
 
