@@ -15,7 +15,7 @@ def stats():
     """returns the number of each object"""
     types = {'amenities': 'Amenity',
                     'cities': 'City',
-                    'places': 'Places',
+                    'places': 'Place',
                     'reviews': 'Review',
                     'states': 'State',
                     'users': 'User'
