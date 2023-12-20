@@ -6,7 +6,7 @@ from models.state import State
 from api.v1.views import app_views
 
 
-@app_views.route('/states', strict_slashes=False)
+@app_views.route('/states', strict_slashes=False, methods=['GET'])
 def get_states_list():
     """Retrieves all State objects list"""
     states_list = []
@@ -40,7 +40,7 @@ def delete_state(state_id):
         abort(404)
     storage.delete(state)
     storage.save()
-    return jsonify({}), 200
+    return make_response(jsonify({}), 200)
 
 
 @app_views.route('/states', strict_slashes=False, methods=['POST'])
@@ -53,7 +53,7 @@ def create_state():
         abort(400, description="Missing name")
     state = State(**data)
     state.save()
-    return jsonify(state.to_dict()), 201
+    return make_response(jsonify(state.to_dict()), 201)
 
 
 @app_views.route('/states/<state_id>', strict_slashes=False, methods=['PUT'])
@@ -68,4 +68,4 @@ def update_state(state_id):
         if key not in ['id', 'created_at', 'updated_at']:
             setattr(state, key, value)
     state.save()
-    return jsonify(state.to_dict()), 200
+    return make_response(jsonify(state.to_dict()), 200)
