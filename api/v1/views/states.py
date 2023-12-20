@@ -10,6 +10,8 @@ from api.v1.views import app_views
 def get_states_list():
     """Retrieves all State objects list"""
     states = [state.to_dict() for state in storage.all(State).values()]
+    if not isinstance(states, list):
+        states = [states]
     return jsonify(states)
 
 
