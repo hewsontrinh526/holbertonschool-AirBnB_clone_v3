@@ -10,7 +10,7 @@ from api.v1.views import app_views
 def get_states_list():
     """Retrieves all State objects list"""
     states_list = []
-    states_dict = storage.all(State)
+    states_dict = storage.all("State")
     for key, value in states_dict.items():
         state_dict = value.to_dict()
         states_list.append(state_dict)
