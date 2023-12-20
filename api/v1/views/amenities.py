@@ -13,7 +13,7 @@ def get_amenities_list():
     obj_dict = storage.all(Amenity)
     for obj in obj_dict.values():
         obj_list.append(obj.to_dict())
-        return jsonify(obj_list)
+    return jsonify(obj_list)
 
 
 @app_views.route('amenities/<amenity_id>', strict_slashes=False,
