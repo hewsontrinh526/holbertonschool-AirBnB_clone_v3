@@ -9,10 +9,11 @@ from api.v1.views import app_views
 @app_views.route('/states', strict_slashes=False, methods=['GET'])
 def get_states_list():
     """Retrieves all State objects list"""
-    states = [state.to_dict() for state in storage.all(State).values()]
-    if not isinstance(states, list):
-        states = [states]
-    return jsonify(states)
+    states_list = []
+    states_dict = storage.all(State)
+    for state in states_dict.values():
+        states_list.append(state.to_dict())
+    return jsonify(states_list)
 
 
 @app_views.route('/states/<state_id>', strict_slashes=False, methods=['GET'])
