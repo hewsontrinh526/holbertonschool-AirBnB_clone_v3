@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """A file app.py that starts a Flask web application"""
 from api.v1.views import app_views
-from flask import Flask, jsonify, make_response, Blueprint
+from flask import Flask, Blueprint, jsonify, make_response
 from models import storage
-from os import getenv
+import os
+
 
 
 app = Flask(__name__)
@@ -23,10 +24,6 @@ def not_found(error):
 
 
 if __name__ == "__main__":
-    app_host = getenv("HBNB_API_HOST")
-    app_port = getenv("HBNB_API_PORT")
-    if app_host is None:
-        app_host = "0.0.0.0"
-    if app_port is None:
-        app_port = 5000
-    app.run(host=app_host, port=app_port)
+    host_name = os.getenv('HBNB_API_HOST', '0.0.0.0')
+    host_port = os.getenv('HBNB_API_PORT', '5000')
+    app.run(host=host_name, port=host_port, threaded=True)
