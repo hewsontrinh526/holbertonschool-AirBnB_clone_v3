@@ -26,7 +26,7 @@ def get_reviews(place_id):
 
 
 @app_views.route('/reviews/<review_id>', strict_slashes=False, methods=['GET'])
-def get_specific_review(review_id)
+def get_specific_review(review_id):
     """
     Retrieves a specific Review object
     """
@@ -52,7 +52,7 @@ def delete_review(review_id):
 
 @app_views.route('/places/<place_id>/reviews', strict_slashes=False,
                  methods=['POST'])
-def create_review(place_id)
+def create_review(place_id):
     """
     Creates a review
     """
