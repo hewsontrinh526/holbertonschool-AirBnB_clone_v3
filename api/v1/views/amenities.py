@@ -6,7 +6,7 @@ from models.amenity import Amenity
 from api.v1.views import app_views
 
 
-@app_views.route('/amenites', strict_slashes=False, methods=['GET'])
+@app_views.route('/amenities', strict_slashes=False, methods=['GET'])
 def get_amenities_list():
     """Retrieves all Amenities objects list"""
     obj_list = []
