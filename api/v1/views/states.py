@@ -12,8 +12,13 @@ def get_states_list():
     states_list = []
     states_dict = storage.all("State")
     for key, value in states_dict.items():
-        state_dict = value.to_dict()
-        states_list.append(state_dict)
+        states_list.append({
+            "__class__": "State",
+            "created_at": value.created_at,
+            "id": value.id,
+            "name": value.name,
+            "updated_at": value.updated_at
+        })
     return jsonify(states_list)
 
 
