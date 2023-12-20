@@ -62,9 +62,9 @@ def create_user():
 
 
 @app_views.route('/users/<user_id>', strict_slashes=False, methods=['PUT'])
-def delete_user(user_id):
+def update_user(user_id):
     """
-    Deletes a user
+    Updates a user
     """
     user = storage.get(User, user_id)
     if user is None:
