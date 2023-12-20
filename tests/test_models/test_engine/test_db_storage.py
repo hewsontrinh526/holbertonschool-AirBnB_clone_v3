@@ -74,6 +74,7 @@ class TestFileStorage(unittest.TestCase):
     attributes = {
         "name": "Mina"
     }
+
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_all_returns_dict(self):
         """Test that all returns a dictionaty"""
